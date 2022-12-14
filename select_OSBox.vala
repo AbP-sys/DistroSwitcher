@@ -1,9 +1,9 @@
 using Gtk;
 
-class select_OSBox: Gtk.Box{
+class select_OSBox: Dashboard{
+    Box buttonBox;
     public select_OSBox(){
-        this.set_orientation(Orientation.VERTICAL);
-        this.set_spacing(10);
+        buttonBox = new Box(Orientation.VERTICAL,10);
 
         Label current_os_label = new Label("");
         current_os_label.set_markup("<span size='xx-large'><b>Current OS:</b></span>");
@@ -23,18 +23,19 @@ class select_OSBox: Gtk.Box{
         debian_button.clicked.connect(open_select_foldersWindow);
         ubuntu_button.clicked.connect(open_select_foldersWindow);
 
-        this.add(current_os_label);
-        this.add(current_os_icon);
-        this.add(migrate_text);
-        this.add(arch_button);
-        this.add(debian_button);
-        this.add(ubuntu_button);
+        buttonBox.add(current_os_label);
+        buttonBox.add(current_os_icon);
+        buttonBox.add(migrate_text);
+        buttonBox.add(arch_button);
+        buttonBox.add(debian_button);
+        buttonBox.add(ubuntu_button);
+        window.add(buttonBox);
     }
 
 
-    private void open_select_foldersWindow(){
-        this.hide();
-        var window = new select_foldersWindow();
-        //dashboard.add(window);
+    void open_select_foldersWindow(){
+        window.remove(buttonBox);
+        var select_foldersWindow = new select_foldersWindow();
+        window.add(select_foldersWindow.scrolled_window);
     }
 }
