@@ -35,7 +35,6 @@ class select_OSBox: Dashboard{
 
     void open_select_foldersWindow(){
         window.remove(buttonBox);
-        var select_foldersWindow = new select_foldersWindow();
-        window.add(select_foldersWindow.scrolled_window);
+        var folder_window = new select_foldersWindow();
     }
 }

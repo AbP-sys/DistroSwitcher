@@ -6,7 +6,6 @@ class select_foldersWindow: Dashboard{
     public select_foldersWindow(){
         // Create a vertical box to hold the checkboxes
         scrolled_window = new Gtk.ScrolledWindow(null,null);
-        window.add(scrolled_window);
         Box vbox = new Box(Orientation.VERTICAL, 10);
         scrolled_window.add(vbox);
     
@@ -29,6 +28,8 @@ class select_foldersWindow: Dashboard{
         next_button.set_halign(Align.END);
         next_button.set_valign(Align.END);
         vbox.add(next_button);
+        window.add(scrolled_window);
+        window.show_all();
     }
 
     public string[] list_home_dir(){
