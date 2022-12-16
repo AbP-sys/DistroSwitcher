@@ -1,8 +1,8 @@
 using Gtk;
 
-class select_OSBox: Dashboard{
+class SelectOS_Panel: Dashboard{
     Box buttonBox;
-    public select_OSBox(){
+    public SelectOS_Panel(){
         buttonBox = new Box(Orientation.VERTICAL,10);
 
         Label current_os_label = new Label("");
@@ -35,6 +35,6 @@ class select_OSBox: Dashboard{
 
     void open_select_foldersWindow(){
         window.remove(buttonBox);
-        var folder_window = new select_foldersWindow();
+        var folder_window = new SelectFolders_Panel();
     }
 }

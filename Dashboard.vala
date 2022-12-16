@@ -13,7 +13,7 @@ class Dashboard {
         window.set_border_width(10);
         window.destroy.connect(main_quit);
 
-        var box = new select_OSBox();
+        var box = new SelectOS_Panel();
         window.show_all();
     
         Gtk.main();

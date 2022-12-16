@@ -1,9 +1,9 @@
 using Gtk;
 
-class select_foldersWindow: Dashboard{
+class SelectFolders_Panel: Dashboard{
 
     public Gtk.ScrolledWindow scrolled_window;
-    public select_foldersWindow(){
+    public SelectFolders_Panel(){
         // Create a vertical box to hold the checkboxes
         scrolled_window = new Gtk.ScrolledWindow(null,null);
         Box vbox = new Box(Orientation.VERTICAL, 10);
