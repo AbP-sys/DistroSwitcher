@@ -28,6 +28,8 @@ class SelectFolders_Panel: Gtk.Box{
         next_button.set_halign(Align.END);
         next_button.set_valign(Align.END);
 
+        next_button.clicked.connect(open_selectApps_Window);
+    
         this.add(scrolled_window);
         this.add(next_button);
         Dashboard.window.add(this);
@@ -46,5 +48,11 @@ class SelectFolders_Panel: Gtk.Box{
             stderr.printf (err.message);
         }
         return list;
+    }
+
+    void open_selectApps_Window(){
+        Dashboard.window.remove(this);
+        var sel_app_window = new SelectApps_Panel();
+        Dashboard.window.show_all();
     }
 }
