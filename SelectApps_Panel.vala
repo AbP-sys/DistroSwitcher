@@ -53,13 +53,14 @@ class SelectApps_Panel : Gtk.Box{
             move_btwn_boxes(carryfwd_box,itemBox);
         });
 
-        var submitButton = new Button.with_label("Finish");
-        submitButton.set_halign(Align.END);
+        var nextButton = new Button.with_label("Next");
+        nextButton.set_halign(Align.END);
+        nextButton.clicked.connect(open_selectISO_Window);
 
 
         this.add(scrollwindow_box);
         this.add(buttonBox);
-        this.add(submitButton);
+        this.add(nextButton);
 
         Dashboard.window.add(this);
         Dashboard.window.show_all();
@@ -73,5 +74,11 @@ class SelectApps_Panel : Gtk.Box{
         }
         box2.unselect_all ();
 
+    }
+
+    void open_selectISO_Window(){
+        Dashboard.window.remove(this);
+        var sel_iso_window = new SelectISO_Panel();
+        Dashboard.window.show_all();
     }
 }
