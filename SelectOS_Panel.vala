@@ -8,8 +8,12 @@ class SelectOS_Panel: Gtk.Box{
         Label current_os_label = new Label("");
         current_os_label.set_markup("<span size='xx-large'><b>Current OS:</b></span>");
 
-        Image current_os_icon = new Image();
-        current_os_icon.set_from_file("distro_icons/128/128_manjaro.png");
+
+        var icon = Gtk.IconTheme.get_default().load_icon("manjaro", 128, (Gtk.IconLookupFlags) 0);
+        var current_os_icon = new Image.from_pixbuf(icon);
+        
+        /*  Image current_os_icon = new Image();
+        current_os_icon.set_from_file("distro_icons/128/128_manjaro.png");  */
 
 
         Label migrate_text = new Label("Migrate to: ");
