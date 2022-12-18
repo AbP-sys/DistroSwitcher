@@ -16,27 +16,22 @@ class SelectApps_Panel : Gtk.Box{
 
         var itemBox = new ListBox ();
         itemBox.set_selection_mode (SelectionMode.SINGLE);
-        var i = 0;
-        while(i < 5){
+        var app_list = AppInfo.get_all();
+        foreach (var app in app_list){
             var row = new ListBoxRow ();
-            var label = new Label ("app");
-            row.add (label);
+            var hBox = new Box(Orientation.HORIZONTAL,0);
+            var label = new Label (app.get_name());
+            var icon = new Image.from_gicon(app.get_icon(), IconSize.MENU);
+            hBox.add(icon);
+            hBox.add(label);
+            row.add (hBox);
             itemBox.add (row);
-            i++;
         }
         installed_scrollwindow.add(itemBox);
         scrollwindow_box.add(installed_scrollwindow);
 
         var carryfwd_box = new ListBox ();
         carryfwd_box.set_selection_mode (SelectionMode.SINGLE);
-        i = 0;
-        while(i < 5){
-            var row = new ListBoxRow ();
-            var label = new Label ("cfwdapp");
-            row.add (label);
-            carryfwd_box.add (row);
-            i++;
-        }
         carryfwd_scrollwindow.add(carryfwd_box);
         scrollwindow_box.add(carryfwd_scrollwindow);
 
@@ -58,8 +53,13 @@ class SelectApps_Panel : Gtk.Box{
             move_btwn_boxes(carryfwd_box,itemBox);
         });
 
+        var submitButton = new Button.with_label("Finish");
+        submitButton.set_halign(Align.END);
+
+
         this.add(scrollwindow_box);
         this.add(buttonBox);
+        this.add(submitButton);
 
         Dashboard.window.add(this);
         Dashboard.window.show_all();
