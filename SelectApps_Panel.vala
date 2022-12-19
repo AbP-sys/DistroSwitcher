@@ -11,8 +11,8 @@ class SelectApps_Panel : Gtk.Box{
         var installed_scrollwindow = new ScrolledWindow(null,null);
         var carryfwd_scrollwindow = new ScrolledWindow(null,null);
 
-        installed_scrollwindow.set_size_request(200, 200);
-        carryfwd_scrollwindow.set_size_request(200,200);
+        installed_scrollwindow.set_size_request(300, 300);
+        carryfwd_scrollwindow.set_size_request(300,300);
 
         var itemBox = new ListBox ();
         itemBox.set_selection_mode (SelectionMode.SINGLE);
